@@ -47,6 +47,7 @@ public class Ejer {
         System.out.println(res);
         System.out.println("El numero de n especifico: " + nSuc);
         System.out.println("El numero de k especifico: " + kSuc);
+        System.out.println("hola mundo");
     }
     
 }
