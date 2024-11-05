@@ -1,0 +1,6 @@
+<Usuario>hola
+<ChatBot>¡Hola! 👋 
+
+¿En qué puedo ayudarte hoy? 😀  
+
+CHAT CERRADO a las 14_11_49 en el 04/10/2024

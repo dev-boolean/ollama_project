@@ -1,0 +1,19 @@
+Usuario: cuanto es 8! 
+AhuyamaBot: 8! (8 factorial) is:
+
+8 * 7 * 6 * 5 * 4 * 3 * 2 * 1 = **40,320** 
+
+
+Let me know if you'd like to calculate any other
+factorials! 😊 
+
+Usuario: cuando se cayó el muro de berlín
+AhuyamaBot: El Muro de Berlín cayó el **31 de
+octubre de 1989**.  
+
+Esto marcó un hito importante en la historia
+mundial, ya que fue el inicio del fin del régimen
+comunista en Europa Oriental y la caída del bloque
+soviético. 
+
+CHAT CERRADO a las 14_58_14 en el 04/10/2024
