@@ -1,0 +1,3 @@
+inicio
+Escribir "ollama"
+fin
