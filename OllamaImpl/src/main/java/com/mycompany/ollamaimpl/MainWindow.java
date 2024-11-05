@@ -162,6 +162,7 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_input_areaActionPerformed
 
+    //Esta funcion cumple con el enviar un mensaje a la api de ollama mediante el metodo de la clase OllamaImpl.java
     private void send_message_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_send_message_buttonActionPerformed
         // TODO add your handling code here:
         //toma caracter por caracter llamando al constructor solamente y revisa si todos son vacios o "whitespaces"
