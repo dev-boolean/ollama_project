@@ -1,3 +1,0 @@
-inicio
-Escribir "ollama"
-fin
