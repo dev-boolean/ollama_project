@@ -4,7 +4,6 @@
  */
 //hola soy juanda
 package com.mycompany.ollamaimpl;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -27,7 +26,7 @@ public class OllamaImpl {
     
 public static String ollamaInput(String firstInput) throws ProtocolException, IOException {
         String model = "gemma2:2b";
-
+        int codigo_de_error=0;
 
         try {
             URL url = new URL("http://localhost:11434/api/generate");
@@ -45,6 +44,7 @@ public static String ollamaInput(String firstInput) throws ProtocolException, IO
             }
 
             int responseCode = connection.getResponseCode();
+            codigo_de_error=responseCode;
             System.out.println("Response code: " + responseCode);
 
             BufferedReader input = new BufferedReader(new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8));
@@ -74,7 +74,8 @@ public static String ollamaInput(String firstInput) throws ProtocolException, IO
  
 
         } catch (MalformedURLException ex) {
-            JOptionPane.showMessageDialog(null, "No se ha podido conectar con la API Ollama","Error Critico",JOptionPane.WARNING_MESSAGE);
+            //Implementación para atrapar errores de la API
+            JOptionPane.showMessageDialog(null, "No se ha podido conectar con la API Ollama",")"+"Error Critico (Codigo de error: "+codigo_de_error,JOptionPane.WARNING_MESSAGE);
         }
         return null;
     } 
