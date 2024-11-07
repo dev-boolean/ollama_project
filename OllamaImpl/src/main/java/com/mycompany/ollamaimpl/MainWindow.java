@@ -206,12 +206,18 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_save_chat_btnActionPerformed
 
     private void back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_buttonActionPerformed
-        // TODO add your handling code here:
+        // El backButton solo aparece cuando seleccionamos el archivo
+        //Limpiamos el modelo y tambien el file seleccionado
         model.clear();
         file_list.clearSelection();
+        
+        //Copiamos el modelo que teníamos guardado y lo mostramos en el modelo principal
         for(int i=0;i<savedModel.getSize();i++) {
+            
             model.addElement(savedModel.getElementAt(i));
         }
+        
+        //hacemos de nuevo visible los botones 
         file_list.setEnabled(true);
         input_area.setEnabled(true);
         send_message_button.setEnabled(true);
@@ -219,16 +225,20 @@ public class MainWindow extends javax.swing.JFrame {
         back_button.setVisible(false);
     }//GEN-LAST:event_back_buttonActionPerformed
     private DefaultListModel<String> savedModel = new DefaultListModel<>();
+    //en este evento se programa lo que pasa cuando el usuario selecciona un elemento en la lista de historial
     private void file_listValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_file_listValueChanged
-        // TODO add your handling code here:
+        // hacemos que el botón regresar sea visible
         back_button.setVisible(true);
+        
          for(int i=0;i<model.getSize();i++) {
+            //En savedModel almacenamos justamente lo previamente hablado con la IA
             savedModel.addElement(model.elementAt(i));
         }
         System.out.println(Arrays.toString(savedModel.toArray()));
         String currentFileSelected = "src\\main\\java\\chat_logs\\" + file_list.getSelectedValue();
         model.clear();
         try {
+            //Le mostramos al usuario la lista de las conversaciones previas en le archivo .txt a traves del ciclo while
             BufferedReader br = new BufferedReader(new FileReader(currentFileSelected));
             String line;
             while((line = br.readLine()) != null) {
@@ -256,17 +266,23 @@ public class MainWindow extends javax.swing.JFrame {
         if(model.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Esta vacio el chat","Alerta",JOptionPane.WARNING_MESSAGE);
         }else {
+         //Llamamos a la librería SimpleDateFormat para asignar la fecha excata al archivo que crearemos
         SimpleDateFormat formatter = new SimpleDateFormat("HH_mm_ss");
         Date date = new Date();
+        //Se crea el archivo de la conversación entre el usuario y la IA, el cual tiene como nombre la fecha.
         File file = new File("src\\main\\java\\chat_logs\\Chat_" + formatter.format(date) + ".txt");
         FileWriter output = new FileWriter(file);
         //System.out.println(modelFileList.getSize());
+        
+        //Aquí, recibimos la respuesta de la IA en String y con el metodo "WordWrapped.from()" acomodamos a 50 palabras cada línea de la respuesta.
         for(int i = 0; i<model.getSize();i++) {
             String notWraped = model.getElementAt(i).toString();
             String wrapedString = WordWrap.from(notWraped).maxWidth(50).insertHyphens(true).wrap();
             output.write(wrapedString+"\n");
             System.out.println(model.getElementAt(i).toString());
         }
+        
+        //Empleamos de nuevo la librería SimpleDateFormat para poder notificarle al usuario el cuando este acabó con la conversación
         SimpleDateFormat format2 = new SimpleDateFormat("dd/MM/yyyy");
         Date date2 = new Date();
         output.write("CHAT CERRADO a las " + formatter.format(date) + " en el " + format2.format(date2));
