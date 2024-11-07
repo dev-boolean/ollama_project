@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
-//hola soy juanda
 package com.mycompany.ollamaimpl;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,7 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.json.JSONObject;
-
+//Se importan las librerias necesarias para que el programa conecte con la API//
 /**
  *
  * @author boolean
@@ -27,7 +26,7 @@ public class OllamaImpl {
 public static String ollamaInput(String firstInput) throws ProtocolException, IOException {
         String model = "gemma2:2b";
         int codigo_de_error=0;
-
+//Se crea una funcion que reciba un input del usuario y se establecen unas excepciones en caso de error al momento de interactuar con la API//
         try {
             URL url = new URL("http://localhost:11434/api/generate");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -38,15 +37,17 @@ public static String ollamaInput(String firstInput) throws ProtocolException, IO
 
             String jsonInputString = String.format(
                     "{\"model\": \"%s\", \"prompt\":\"%s\", \"stream\": false}", model,firstInput);
+//Se implementa un try que esta configurado para realizar una conexión HTTP a una URL específica utilizando la clase HttpURLConnection de Java//
             try(OutputStream outStream = connection.getOutputStream()) {
                 byte[] input = jsonInputString.getBytes(StandardCharsets.UTF_8);
                 outStream.write(input,0,input.length);
             }
+            //Se implemente un try para enviar datos (una cadena JSON) a un servidor a través de una conexión HTTP utilizando el flujo de salida (OutputStream)//
 
             int responseCode = connection.getResponseCode();
             codigo_de_error=responseCode;
             System.out.println("Response code: " + responseCode);
-
+//Se obtiene el codigo de respuesta de una solicitud HTTP realizada a un servidor, que arroja un codigo de estado, en este caso de exito//
             BufferedReader input = new BufferedReader(new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8));
             StringBuilder response = new StringBuilder();
             String line;
@@ -55,14 +56,13 @@ public static String ollamaInput(String firstInput) throws ProtocolException, IO
             }
             input.close();
 
-            //Este es el JSON con la respuesta de la APi
-            //System.out.println("Response: " + response.toString());
-
+        //Se refleja el JSON con la respectiva respuesta de la API//
+    
             JSONObject objectResponse = new JSONObject(response.toString());
             String responseText = objectResponse.getString("response");
             System.out.println("Respuesta: " + responseText);
-
-            //le devolvemos la respuesta al usuario
+//Se utiliza la libreria JSONObject para solamente tomar la respuesta del objeto.JSON que nos devuelve la API//
+//Mostramos la respuesta al usuario//
             return responseText;
 
 
