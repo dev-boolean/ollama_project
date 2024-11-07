@@ -167,20 +167,26 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
         //toma caracter por caracter llamando al constructor solamente y revisa si todos son vacios o "whitespaces"
         //Facilmente si el proyecto estuviese en java 11 se usaria el isBlank pero bueno xD
+        //Verificamos que no esté vacio el mensaje
         if(input_area.getText().chars().allMatch(Character::isWhitespace)) {
             JOptionPane.showMessageDialog(this, "El prompt no puede estar vacio","Alerta",JOptionPane.WARNING_MESSAGE);
         }else {
             //Hyphens es = -
         String vec[] = new String[20];
-        try {
+        try { // Se utiliza la libreria externa WordWrap para ponerle un formato al texto para que no presente problema dentro del TextArea, en otras palabras si el mensaje se excede de las medidas el WordWrap pone el formato correcto (Ancho caracteres = 50)
             String input = WordWrap.from("Usuario: " + input_area.getText()).maxWidth(50).insertHyphens(true).wrap();
             model.addElement(input);
             String inputToAi = input_area.getText();
             input_area.setText("");
             String answer = WordWrap.from("AhuyamaBot: " +OllamaImpl.ollamaInput(inputToAi)).maxWidth(50).insertHyphens(true).wrap();
             model.addElement(answer);
+            /*Lo que se realiza dentro del try es tomar el input del usuario y mandarlo a la funcion 
+            ollamaInput como paramtro y esta nos devuelve un string con la respuesta de la IA
+            para seguidamente agregar ambos elemntos (input del usuario y respuesta del usuario) 
+            al modelo del JList*/
             
-        } catch (IOException ex) {
+        } catch (IOException ex) { /*Si no se hace una conexion exitosa con la API se 
+            le muestra un errror al usuario*/
             model.clear();
             JOptionPane.showMessageDialog(null, "No se ha podido conectar con la API Ollama","Error Critico",JOptionPane.WARNING_MESSAGE);
             input_area.requestFocus();
@@ -189,7 +195,8 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_send_message_buttonActionPerformed
 
     private void save_chat_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_chat_btnActionPerformed
-        // TODO add your handling code here:
+        /*Este evento se encarga de guardar el contenido del TextArea cuando se de click en el boton, 
+        si ocurre un error durant el proceso de guardado, se captura y se imprime la informacion del error en la consola*/
         try {
             saveCurrentJTextArea();
         } catch (Exception e) {
