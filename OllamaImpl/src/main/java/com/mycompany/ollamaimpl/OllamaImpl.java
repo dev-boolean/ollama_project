@@ -62,6 +62,7 @@ public static String ollamaInput(String firstInput) throws ProtocolException, IO
             String responseText = objectResponse.getString("response");
             System.out.println("Respuesta: " + responseText);
 
+            //le devolvemos la respuesta al usuario
             return responseText;
 
 
