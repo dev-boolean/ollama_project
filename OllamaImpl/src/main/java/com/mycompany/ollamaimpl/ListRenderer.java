@@ -16,6 +16,7 @@ import javax.swing.ListCellRenderer;
  */
 
 public class ListRenderer implements ListCellRenderer {
+    //Se implementa el ListCellRenderer para poder ponerle propiedades al jTextArea dentro del JList
         static JTextArea renderer = new JTextArea();
     @Override
     public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {  
@@ -23,6 +24,7 @@ public class ListRenderer implements ListCellRenderer {
         renderer.setFont(new Font(null,3,25));
         renderer.setLineWrap(true);
         renderer.setWrapStyleWord(true);
+        //Estas propiedades son para el tipo de letra y que el texto se ajuste automaticamente a el jTextArea (Jlist)
         return renderer;
         
         
