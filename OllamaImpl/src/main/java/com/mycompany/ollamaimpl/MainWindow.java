@@ -172,14 +172,25 @@ public class MainWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El prompt no puede estar vacio","Alerta",JOptionPane.WARNING_MESSAGE);
         }else {
             //Hyphens es = -
-        String vec[] = new String[20];
+        String vec[] = new String[200];
+        int pos=0;
         try { // Se utiliza la libreria externa WordWrap para ponerle un formato al texto para que no presente problema dentro del TextArea, en otras palabras si el mensaje se excede de las medidas el WordWrap pone el formato correcto (Ancho caracteres = 50)
             String input = WordWrap.from("Usuario: " + input_area.getText()).maxWidth(50).insertHyphens(true).wrap();
+            //implementación para guardar la conversación en un vector (tamaño de prueba: 200)
+            vec[pos]=input_area.getText();
+            pos++;
             model.addElement(input);
             String inputToAi = input_area.getText();
             input_area.setText("");
-            String answer = WordWrap.from("AhuyamaBot: " +OllamaImpl.ollamaInput(inputToAi)).maxWidth(50).insertHyphens(true).wrap();
+            String obtener_respuesta=OllamaImpl.ollamaInput(inputToAi);
+            //MAximo largo de la línea es de 50 palabras
+            String answer = WordWrap.from("AhuyamaBot: " +obtener_respuesta).maxWidth(50).insertHyphens(true).wrap();
+            vec[pos]=obtener_respuesta;
+            pos++;
             model.addElement(answer);
+            for (int i = 0; i < pos; i++) {
+                System.out.println(vec[i]+"\n");
+            }
             /*Lo que se realiza dentro del try es tomar el input del usuario y mandarlo a la funcion 
             ollamaInput como paramtro y esta nos devuelve un string con la respuesta de la IA
             para seguidamente agregar ambos elemntos (input del usuario y respuesta del usuario) 
