@@ -171,7 +171,7 @@ public class MainWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El prompt no puede estar vacio","Alerta",JOptionPane.WARNING_MESSAGE);
         }else {
             //Hyphens es = -
-        
+        String vec[] = new String[20];
         try {
             String input = WordWrap.from("Usuario: " + input_area.getText()).maxWidth(50).insertHyphens(true).wrap();
             model.addElement(input);
