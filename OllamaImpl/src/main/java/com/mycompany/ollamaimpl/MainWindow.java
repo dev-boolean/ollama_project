@@ -298,6 +298,11 @@ public class MainWindow extends javax.swing.JFrame {
      */
     DefaultListModel modelFileList = new DefaultListModel();
     private void updateFileHistory() {
+        /*Este se utilia para actualizar la lista de archivos principalmente. Lee los archivos en el directorio chat_logs, 
+        limpia la lista existente de archivos en la interfaz, agrega los nombres de los archivos encontrados al modelo 
+        de la lista y actualiza la interfaz para reflejar los cambops en la lista.
+Este metodo se hace para mostrar un historial y que la interfaz se mantenga actualizada con los archivos 
+        disponibles en el sistema*/
         File file = new File("src\\main\\java\\chat_logs");
         File[] fileList = file.listFiles();
         modelFileList.clear();
@@ -312,6 +317,10 @@ public class MainWindow extends javax.swing.JFrame {
         save_chat_btn.setIcon(new ImageIcon("src\\main\\java\\app_icons\\new_chat_icon.png"));
         send_message_button.setIcon(new ImageIcon("src\\main\\java\\app_icons\\send_message_icon.png"));
         back_button.setIcon(new ImageIcon("src\\main\\java\\app_icons\\back_icon.png"));
+        /*En esta parte se encuentran las imagenes de la aplicacion, del save, del send y del back button
+        El request focus es decirle al usuario que se enfoque en el area donde esta escribiendo que cuando presione cualquier 
+        tecla del teclado aparezca en el textarea
+        El scrollpane lo que hace es que se pueda mover tanto horizontalmente y verticalmente en el frame*/
         
         input_area.requestFocus();
         back_button.setVisible(false);
