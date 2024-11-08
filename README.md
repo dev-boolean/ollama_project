@@ -6,7 +6,7 @@ _Este Chatbot emplea la API de Ollama (en este caso la versión Gemma 2 2b) para
 
 Primeramente, debes dirigirte a nuestro repositorio. [Haz click aquí para acceder a él](https://github.com/dev-boolean/ollama_project_)
 
-![Imag] (https://github.com/dev-boolean/ollama_project/blob/main/REDME_resources/REPOSITORIO%20BOOLEAN.png)
+![Imag](https://github.com/dev-boolean/ollama_project/blob/main/REDME_resources/REPOSITORIO%20BOOLEAN.png)
 
 
 ### Pre-requisitos 📋
