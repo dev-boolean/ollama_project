@@ -4,20 +4,20 @@ _Este Chatbot emplea la API de Ollama (en este caso la versión Gemma 2 2b) para
 
 ## Comenzando 🚀
 
-_Primeramente, debemos dirigirnos a nuestro repositorio [¿Cómo descargar el archivo directo desde el repositorio?](https://github.com/dev-boolean/ollama_project_)
+_Primeramente, debes dirigirte a nuestro repositorio [¿Cómo descargar el archivo directo desde el repositorio?](https://github.com/dev-boolean/ollama_project_)
 
 Mira **Deployment** para conocer como desplegar el proyecto.
 
 
 ### Pre-requisitos 📋
 
-_Que cosas necesitas para instalar el software y como instalarlas_
+_Para poder tener el chatbot en nuestro dispositivo, debemos dirigirnos al repositorio en GitHub de ollama y buscar la versión Gemma 2 2B, la cual pesa 1,7 GB [Repositorio de ollama](https://github.com/ollama) _
 
-```
-Da un ejemplo
-```
 
-### Instalación 🔧
+![Imagen ilustrativa 1](https://github.com/dev-boolean/ollama_project/blob/main/REDME_resources/ollama%20repositorio.png)
+
+
+### Instalación de la API de ollama en nuestro dispositivo Windows🔧
 
 _Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
 
