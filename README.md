@@ -19,13 +19,9 @@ Para poder tener acceso a la API del chatbot en nuestro dispositivo,debemos diri
 
 ### Instalación de la API de ollama en nuestro dispositivo Windows🔧
 
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
+_Al habernos dirigido al repositorio de ollama e instalado la versión Gemma 2 2b, nos dirigimos a la terminal de Windows_
 
-_Dí cómo será ese paso_
-
-```
-Da un ejemplo
-```
+![Imagen ilustrativa 2]()
 
 _Y repite_
 
