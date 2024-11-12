@@ -1,0 +1,68 @@
+Usuario: hola 
+AhuyamaBot: ¡Hola! 👋 ¿Cómo estás? 😊  
+
+Usuario: bien y tu?
+AhuyamaBot: ¡Hola!  😊  Bien, gracias por
+preguntar. ¿Cómo estás tú? 
+
+Usuario: ya te dije que bien 
+AhuyamaBot: I understand!  
+
+Is there anything else you'd like to tell me? 😊
+I'm ready for your instructions. 😄
+
+Usuario: como calculo el factorial de un numero=?
+AhuyamaBot: ¡Claro que sí! Aquí te explico cómo
+calcular el factorial de un número:
+
+**Explicación del Factorial:**
+
+El factorial de un número, representado por la
+operación "!", significa la multiplicación de
+todos los números enteros positivos menores o
+iguales al número en cuestión. 
+
+**Cálculo del Factorial:**
+
+Para calcular el factorial de un número N, sigue
+estos pasos:
+
+1. **Si N es igual a 0:** El factorial de 0 (0!)
+es igual a 1.
+2. **Si N es un número positivo:** Calcula el
+factorial de N como: N! = N * (N - 1) * (N - 2) *
+... * 2 * 1
+
+**Ejemplo:**
+
+* **Calcular el factorial de 5 (5!):**  5! = 5 * 4
+* 3 * 2 * 1 = 120
+
+
+**Ejemplos con Python:**
+
+En Python, puedes calcular el factorial de un
+número usando la función `math.factorial()` :
+
+```python
+import math
+
+numero = 5
+factorial = math.factorial(numero)
+print(f"El factorial de {numero} es: {factorial}")
+```
+
+**Recursos Adicionales:**
+
+* **Wikipedia:**
+https://es.wikipedia.org/wiki/Factorial 
+* **Calculator:** Puedes usar una calculadora para
+calcular el factorial (por ejemplo, Wolfram Alpha)
+.
+
+
+Espero que esta información te ayude a comprender
+cómo calcular el factorial de un número. Si tienes
+alguna pregunta, no dudes en preguntarme. 😊 
+
+CHAT CERRADO a las 15_53_21 en el 09/11/2024
